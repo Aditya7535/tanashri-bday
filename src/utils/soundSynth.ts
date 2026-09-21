@@ -50,6 +50,7 @@ class AmbientSoundEngine {
       }
 
       this.audioElement.volume = 0.55;
+      this.audioElement.muted = false;
       this.audioElement.loop = true;
 
       this.audioElement.onplay = () => {
@@ -111,6 +112,9 @@ class AmbientSoundEngine {
       this.currentTrackPath = trackPath;
       audio.src = trackPath;
     }
+
+    audio.muted = false;
+    audio.volume = this.baseVolume;
 
     // Synchronous native play call inside the execution stack
     const playPromise = audio.play();

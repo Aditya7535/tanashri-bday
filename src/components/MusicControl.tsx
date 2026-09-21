@@ -63,8 +63,8 @@ export const MusicControl: React.FC<MusicControlProps> = ({ currentPage = 0 }) =
               ♪ <span className="text-white font-medium">{currentTrack.songTitle}</span>
             </span>
           ) : (
-            <span className="uppercase text-[#A7A39B]/70">
-              ♪ Music <span className="font-semibold text-[#A7A39B]/50 ml-0.5">OFF</span>
+            <span className="text-[#fce7ea]/80 animate-pulse font-medium">
+              ♪ Tap for music 🎧
             </span>
           )}
         </span>

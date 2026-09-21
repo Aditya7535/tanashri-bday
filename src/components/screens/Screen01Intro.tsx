@@ -30,7 +30,14 @@ export const Screen01Intro: React.FC<ScreenProps> = ({ onStart }) => {
   };
 
   return (
-    <section className="relative min-h-[100svh] w-full flex flex-col items-center justify-between px-6 py-16 bg-[#080808] text-center select-none snap-start overflow-hidden">
+    <section
+      onClick={() => {
+        if (!ambientSound.getIsPlaying()) {
+          ambientSound.play(storyData.chapterAudios[0]?.filePath, 0);
+        }
+      }}
+      className="relative min-h-[100svh] w-full flex flex-col items-center justify-between px-6 py-16 bg-[#080808] text-center select-none snap-start overflow-hidden cursor-pointer"
+    >
       {/* Dynamic Ambient Background Glow that blooms on unseal */}
       <motion.div
         animate={

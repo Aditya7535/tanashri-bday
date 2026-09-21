@@ -19,6 +19,41 @@
   <body class="bg-[#080808] text-[#F5F2EC] selection:bg-[#581825] selection:text-[#F5F2EC] antialiased overflow-x-hidden">
     <!-- Instant Preloaded Soundtrack for Zero-Latency Playback -->
     <audio id="global-bg-audio" src="/audio/00_intro.mp3" preload="auto" loop playsinline></audio>
+    <script>
+      (function() {
+        var audio = document.getElementById('global-bg-audio');
+        if (!audio) return;
+        audio.volume = 0.55;
+        audio.muted = false;
+
+        function startAudio() {
+          audio.muted = false;
+          audio.volume = 0.55;
+          var p = audio.play();
+          if (p !== undefined) {
+            p.then(function() {
+              cleanup();
+            }).catch(function() {});
+          }
+        }
+
+        function cleanup() {
+          ['touchstart', 'touchend', 'pointerdown', 'click', 'keydown', 'scroll'].forEach(function(e) {
+            window.removeEventListener(e, startAudio, true);
+            document.removeEventListener(e, startAudio, true);
+          });
+        }
+
+        // 1. Try immediate unmuted autoplay on load
+        startAudio();
+
+        // 2. Unblock immediately on first touch anywhere on screen
+        ['touchstart', 'touchend', 'pointerdown', 'click', 'keydown', 'scroll'].forEach(function(e) {
+          window.addEventListener(e, startAudio, { capture: true, passive: true });
+          document.addEventListener(e, startAudio, { capture: true, passive: true });
+        });
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
