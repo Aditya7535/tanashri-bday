@@ -1,0 +1,27 @@
+==============================================================================
+HOW TO ADD EACH SONG FOR EACH PAGE:
+==============================================================================
+
+Simply drop your .mp3 audio files into this folder (`public/audio/`) with these exact names:
+
+  Page 0 (Intro / Wax Seal):        00_intro.mp3
+  Page 1 (The First Time):          01_first_time.mp3
+  Page 2 (Atrangi):                 02_atrangi.mp3
+  Page 3 (Eye Contact):             03_eye_contact.mp3
+  Page 4 (Lohri):                   04_lohri.mp3
+  Page 5 (Dhoom Chitar):            05_chitra_dhoom.mp3
+  Page 6 (The Flowers):             06_flowers.mp3
+  Page 7 (The Canteen):             07_canteen.mp3
+  Page 8 (The Silence):             08_silence.mp3
+  Page 9 (The Call):                09_the_call.mp3
+  Page 10 (To Know):                10_to_know.mp3
+  Page 11 (Birthday):               11_birthday.mp3
+  Page 12 (End / Epilogue):         12_epilogue.mp3
+
+------------------------------------------------------------------------------
+NOTE:
+- If a song file is not added yet, the website automatically plays a smooth,
+  chapter-tuned ambient harmonic piano synth so it ALWAYS sounds magical!
+- When you add any of these MP3 files, the website will seamlessly crossfade
+  to that song the second you turn to that page!
+==============================================================================
