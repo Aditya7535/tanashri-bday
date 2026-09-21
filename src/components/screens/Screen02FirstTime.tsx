@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 import { storyData } from '../../data/storyData';
 import { PhotoFrame } from '../PhotoFrame';
 
@@ -21,7 +22,7 @@ export const Screen02FirstTime: React.FC<ScreenProps> = ({ onTriggerEasterEgg })
   };
 
   return (
-    <section className="relative min-h-[100svh] w-full flex flex-col justify-center px-6 py-24 bg-[#080808] snap-start overflow-hidden">
+    <section className="relative min-h-[100svh] w-full flex flex-col justify-center px-6 pt-16 pb-36 bg-[#080808] snap-start overflow-hidden">
       {/* Warm cinematic ambient lighting */}
       <div
         className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[340px] h-[340px] rounded-full pointer-events-none opacity-25 blur-[100px] bg-[#581825]"
@@ -79,6 +80,25 @@ export const Screen02FirstTime: React.FC<ScreenProps> = ({ onTriggerEasterEgg })
             accentHint={true}
             tiltAngle={-1.5}
           />
+        </motion.div>
+
+        {/* Scroll Down Gentle Cue */}
+        <motion.div
+          initial={{ opacity: 0, y: -4 }}
+          animate={{ opacity: [0.7, 1, 0.7], y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
+          className="mb-8 flex flex-col items-center select-none cursor-pointer"
+          onClick={() => {
+            window.scrollBy({ top: 360, behavior: 'smooth' });
+          }}
+          title="Scroll down to read the full memory"
+        >
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#380b14]/90 via-[#581825]/80 to-[#380b14]/90 border border-[#e5b3b9]/35 backdrop-blur-md shadow-lg shadow-black/50 hover:border-[#e5b3b9]/60 transition-colors">
+            <span className="font-handwriting text-sm sm:text-base text-[#fce7ea] tracking-wide">
+              scroll down to read story
+            </span>
+            <ChevronDown className="w-4 h-4 text-[#f3d1d7] animate-bounce" />
+          </div>
         </motion.div>
 
         {/* Story Sentences inside an Editorial Memory Card */}
